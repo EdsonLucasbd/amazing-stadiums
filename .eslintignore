@@ -1,0 +1,8 @@
+/build/**
+/coverage/**
+/tests/bench/**
+/tests/fixtures/**
+/tests/performance/**
+/node_modules/**
+test.ts
+!.eslintrc.ts
