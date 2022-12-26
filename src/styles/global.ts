@@ -1,6 +1,18 @@
 import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyles = createGlobalStyle`
+  :root {
+    --highlight: #e20e8d;
+    --background: #030518;
+    --white: #eee;
+
+    --container: 100rem;
+
+    --small: 1.5rem;
+    --mediu: 3rem;
+    --large: 5rem
+  }
+
   * {
     margin: 0;
     padding: 0;
@@ -16,7 +28,18 @@ const GlobalStyles = createGlobalStyle`
   }
 
   body {
+    background: var(--background);
+    color: var(--white);
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+
+  p {
+    font-size: 2rem;
+    line-height: var(--mediu);
+  }
+
+  a {
+    color: var(--highlight);
   }
 `
 

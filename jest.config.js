@@ -6,6 +6,15 @@ const createJestConfig = nextJest({ dir: './' })
 const customJestConfig = {
   testEnvironment: 'jsdom',
   testPathIgnorePatterns: ['/node_modules/', '/.next/'],
+  transformIgnorePatterns: [
+    '/node_modules/(?!(react-leaflet/lib|@react-leaflet/core/lib)/)',
+    '!node_modules/',
+    '!.next/'
+  ],
+  transform: {
+    '^.+\\.ts?$': 'ts-jest',
+    '^.+\\.(js|jsx)$': 'babel-jest'
+  },
   collectCoverage: true,
   collectCoverageFrom: ['src/**/*.ts(x)'],
   setupFilesAfterEnv: ['<rootDir>/.jest/setup.ts']

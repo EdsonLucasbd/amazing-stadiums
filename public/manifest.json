@@ -1,6 +1,6 @@
 {
-  "name": "Amazing Boilerplate",
-  "short_name": "Amazing Boilerplate",
+  "name": "Amazing Stadiums",
+  "short_name": "Amazing Stadiums",
   "icons": [
     {
       "src": "/img/icon-192x192.png",
@@ -14,7 +14,7 @@
     }
   ],
   "background_color": "#06092B",
-  "description": "A Boilerplate with ReactJS, NextJS, TypeScript and Styled Components.",
+  "description": "A project to tour the most amazing stadiums around the world.",
   "display": "fullscreen",
   "start_url": "/",
   "theme_color": "#06092B"
