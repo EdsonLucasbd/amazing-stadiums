@@ -9,7 +9,7 @@ const GlobalStyles = createGlobalStyle`
     --container: 100rem;
 
     --small: 1.5rem;
-    --mediu: 3rem;
+    --medium: 3rem;
     --large: 5rem
   }
 
