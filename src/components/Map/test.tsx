@@ -14,8 +14,8 @@ describe('<Map />', () => {
   it('should render with the marker in correct place', () => {
     const place = {
       id: '1',
-      name: 'Salvador',
-      slug: 'salvador',
+      name: 'Arena Fonte Nova',
+      slug: 'arena-fonte-nova',
       location: {
         latitude: -12.9704,
         longitude: -38.5124
@@ -24,17 +24,17 @@ describe('<Map />', () => {
 
     const secoundPlace = {
       id: '2',
-      name: 'Manchester',
-      slug: 'manchester',
+      name: 'Old trafford',
+      slug: 'old-trafford',
       location: {
         latitude: 53.467,
         longitude: -2.233
       }
     }
 
-    render(<Map places={[place, secoundPlace]} />)
+    render(<Map stadiums={[place, secoundPlace]} />)
 
-    expect(screen.getByTitle(/salvador/i)).toBeInTheDocument()
-    expect(screen.getByTitle(/manchester/i)).toBeInTheDocument()
+    expect(screen.getByTitle(/Arena Fonte Nova/i)).toBeInTheDocument()
+    expect(screen.getByTitle(/old trafford/i)).toBeInTheDocument()
   })
 })

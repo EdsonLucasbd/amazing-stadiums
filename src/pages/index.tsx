@@ -1,19 +1,19 @@
-import { LinkWrapper } from 'components/LinkWrapper'
-import { InfoOutline } from '@styled-icons/evaicons-outline/InfoOutline'
-import dynamic from 'next/dynamic'
+import { MapProps } from 'components/Map'
+import client from 'graphql/client'
+import { GetStadiumsQuery } from 'graphql/generated/graphql'
+import { GET_STADIUMS } from 'graphql/queries'
+import HomeTemplate from 'templates/Home'
 
-const Map = dynamic(() => import('components/Map'), { ssr: false })
+export default function Home({ stadiums }: MapProps) {
+  return <HomeTemplate stadiums={stadiums} />
+}
 
-export default function Home() {
-  return (
-    <>
-      <LinkWrapper href="/about">
-        <InfoOutline
-          size={32}
-          aria-label="Clique para ir à pagina de detalhes deste projeto"
-        />
-      </LinkWrapper>
-      <Map />
-    </>
-  )
+export const getStaticProps = async () => {
+  const { stadiums } = await client.request<GetStadiumsQuery>(GET_STADIUMS)
+
+  return {
+    props: {
+      stadiums
+    }
+  }
 }

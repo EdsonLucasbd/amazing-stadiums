@@ -7,7 +7,7 @@ const customJestConfig = {
   testEnvironment: 'jsdom',
   testPathIgnorePatterns: ['/node_modules/', '/.next/'],
   transformIgnorePatterns: [
-    '/node_modules/(?!(react-leaflet/lib|@react-leaflet/core/lib)/)',
+    '/node_modules/(?!react-leaflet/lib|@react-leaflet/core/lib).+\\.js$',
     '!node_modules/',
     '!.next/'
   ],

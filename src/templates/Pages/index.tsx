@@ -10,8 +10,8 @@ export type PageTemplateProps = {
 
 const PageTemplate = ({ heading, body }: PageTemplateProps) => (
   <S.Content>
-    <LinkWrapper href="/" aria-label="Clique para retornar para o mapa.">
-      <CloseOutline size={32} />
+    <LinkWrapper href="/">
+      <CloseOutline size={32} aria-label="Clique para retornar para o mapa." />
     </LinkWrapper>
 
     <S.Heading>{heading}</S.Heading>

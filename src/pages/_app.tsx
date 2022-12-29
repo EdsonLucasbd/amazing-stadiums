@@ -2,11 +2,15 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import GlobalStyles from 'styles/global'
 
+import NextNProgress from 'nextjs-progressbar'
+
+import SEO from '../../next-seo.config'
+import { DefaultSeo } from 'next-seo'
+
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Amazing Stadiums</title>
         <link rel="icon" href="/img/favicon.ico" />
         <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
@@ -16,13 +20,16 @@ export default function App({ Component, pageProps }: AppProps) {
           integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
           crossOrigin=""
         />
-        <meta name="theme-color" content="#06092b" />
-        <meta
-          name="description"
-          content="A project to tour the most amazing stadiums around the world."
-        />
       </Head>
+      <DefaultSeo {...SEO} />
       <GlobalStyles />
+      <NextNProgress
+        color="#ff79c6"
+        startPosition={0.3}
+        stopDelayMs={200}
+        height={3}
+        showOnShallow={true}
+      />
       <Component {...pageProps} />
     </>
   )

@@ -25,3 +25,47 @@ export const GET_PAGE_BY_SLUG = gql`
     }
   }
 `
+
+export const GET_STADIUMS = gql`
+  query getStadiums {
+    stadiums {
+      id
+      slug
+      name
+      location {
+        latitude
+        longitude
+      }
+      description {
+        html
+      }
+      gallery {
+        url
+        height
+        width
+      }
+    }
+  }
+`
+export const GET_STADIUM_BY_SLUG = gql`
+  query getStadiumBySlug($slug: String!) {
+    stadium(where: { slug: $slug }) {
+      id
+      slug
+      name
+      location {
+        latitude
+        longitude
+      }
+      description {
+        html
+        text
+      }
+      gallery {
+        url
+        height
+        width
+      }
+    }
+  }
+`
