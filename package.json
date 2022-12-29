@@ -20,7 +20,7 @@
   "lint-staged": {
     "src/**/*": [
       "yarn lint --fix",
-      "yarn test --findRelatedTests --bail"
+      "yarn test --findRelatedTests --passWithNoTests --bail"
     ]
   },
   "dependencies": {
@@ -35,7 +35,7 @@
     "nextjs-progressbar": "^0.0.16",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-leaflet": "3.2.5",
+    "react-leaflet": "4.2.0",
     "styled-components": "^5.3.6"
   },
   "devDependencies": {
