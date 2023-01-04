@@ -42,6 +42,11 @@ const Map = ({ stadiums }: MapProps) => {
         center={[0, 0]}
         zoom={3}
         minZoom={3}
+        maxBounds={[
+          [-180, 180],
+          [180, -180]
+        ]}
+        maxBoundsViscosity={1.0}
         style={{ height: '100%', width: '100%' }}
       >
         <CustomTileLayer />
