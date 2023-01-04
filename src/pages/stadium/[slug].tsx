@@ -39,6 +39,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   if (!stadium) return { notFound: true }
 
   return {
+    revalidate: 60,
     props: {
       stadium
     }

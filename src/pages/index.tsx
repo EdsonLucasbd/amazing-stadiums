@@ -12,6 +12,7 @@ export const getStaticProps = async () => {
   const { stadiums } = await client.request<GetStadiumsQuery>(GET_STADIUMS)
 
   return {
+    revalidate: 60,
     props: {
       stadiums
     }
