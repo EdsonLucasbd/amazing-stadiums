@@ -8,5 +8,9 @@ module.exports = {
     ],
     ['@babel/plugin-proposal-class-properties']
   ],
-  presets: ['@babel/preset-env', 'next/babel', '@babel/preset-typescript']
+  presets: [
+    ['@babel/preset-env', { targets: { node: 'current' } }],
+    'next/babel',
+    '@babel/preset-typescript'
+  ]
 }
