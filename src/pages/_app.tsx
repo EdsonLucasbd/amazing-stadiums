@@ -11,6 +11,10 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
+        <meta
+          name="google-site-verification"
+          content="uUtqTyNVpa2EMJD5x8YGhKMNWFFuFHjRBvbiLSAI4Sk"
+        />
         <link rel="icon" href="/img/favicon.ico" />
         <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
