@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router'
-import { MapContainer, TileLayer, Marker } from 'react-leaflet'
+import { MapContainer, TileLayer, Marker, useMap } from 'react-leaflet'
+import { mapView } from './config'
 import * as S from './styles'
 
 type Stadium = {
@@ -34,13 +35,33 @@ const CustomTileLayer = () => {
   )
 }
 
+const MyMapConosumer = () => {
+  const map = useMap()
+  const width =
+    window.innerWidth ||
+    document.documentElement.clientWidth ||
+    document.body.clientWidth
+
+  if (width < 768) {
+    map.setMinZoom(2)
+  }
+
+  map.addEventListener('dragend', () => {
+    mapView.setView(map.getCenter())
+  })
+  map.addEventListener('zoomend', () => {
+    mapView.setView(map.getCenter(), map.getZoom())
+  })
+  return null
+}
+
 const Map = ({ stadiums }: MapProps) => {
   const router = useRouter()
   return (
     <S.MapWrapper>
       <MapContainer
-        center={[0, 0]}
-        zoom={3}
+        center={mapView.center}
+        zoom={mapView.zoom}
         minZoom={3}
         maxBounds={[
           [-180, 180],
@@ -49,6 +70,7 @@ const Map = ({ stadiums }: MapProps) => {
         maxBoundsViscosity={1.0}
         style={{ height: '100%', width: '100%' }}
       >
+        <MyMapConosumer />
         <CustomTileLayer />
         {stadiums?.map(({ id, name, slug, location }) => {
           const { latitude, longitude } = location
