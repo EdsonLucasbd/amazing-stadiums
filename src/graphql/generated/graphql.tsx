@@ -4416,6 +4416,7 @@ export enum _SystemDateTimeFieldVariation {
 
 export type GetPagesQueryVariables = Exact<{
   first?: InputMaybe<Scalars['Int']>;
+  locale: Locale;
 }>;
 
 
@@ -4423,6 +4424,7 @@ export type GetPagesQuery = { __typename?: 'Query', pages: Array<{ __typename?: 
 
 export type GetPageBySlugQueryVariables = Exact<{
   slug: Scalars['String'];
+  locale: Locale;
 }>;
 
 
@@ -4435,7 +4437,8 @@ export type GetStadiumsQuery = { __typename?: 'Query', stadiums: Array<{ __typen
 
 export type GetStadiumBySlugQueryVariables = Exact<{
   slug: Scalars['String'];
+  locale: Locale;
 }>;
 
 
-export type GetStadiumBySlugQuery = { __typename?: 'Query', stadium?: { __typename?: 'Stadium', id: string, slug: string, name: string, location: { __typename?: 'Location', latitude: number, longitude: number }, description?: { __typename?: 'RichText', html: string, text: string } | null, gallery: Array<{ __typename?: 'Asset', url: string, height?: number | null, width?: number | null }> } | null };
+export type GetStadiumBySlugQuery = { __typename?: 'Query', stadium?: { __typename?: 'Stadium', id: string, slug: string, name: string, location: { __typename?: 'Location', latitude: number, longitude: number }, description?: { __typename?: 'RichText', html: string } | null, gallery: Array<{ __typename?: 'Asset', url: string, height?: number | null, width?: number | null }> } | null };

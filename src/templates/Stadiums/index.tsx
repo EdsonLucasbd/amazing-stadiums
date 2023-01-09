@@ -1,5 +1,6 @@
 import { CloseOutline } from '@styled-icons/evaicons-outline'
 import { LinkWrapper } from 'components/LinkWrapper'
+import { SettingButton } from 'components/SettingButton'
 import { NextSeo } from 'next-seo'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
@@ -60,6 +61,7 @@ export default function StadiumsTemplate({ stadium }: StadiumsTemplateProps) {
           aria-label="Clique para retornar para o mapa."
         />
       </LinkWrapper>
+      <SettingButton />
 
       <S.Wrapper>
         <S.Container>

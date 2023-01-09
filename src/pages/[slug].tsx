@@ -5,6 +5,11 @@ import { GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
 import PageTemplate, { PageTemplateProps } from 'templates/Pages'
 
+type StaticPathsProps = {
+  locale: string
+  locales: string[]
+}
+
 export default function Page({ heading, body }: PageTemplateProps) {
   const router = useRouter()
 
@@ -13,19 +18,38 @@ export default function Page({ heading, body }: PageTemplateProps) {
   return <PageTemplate heading={heading} body={body} />
 }
 
-export async function getStaticPaths() {
-  const { pages } = await client.request<GetPagesQuery>(GET_PAGES, { first: 3 })
+export async function getStaticPaths({
+  locales,
+  locale = 'pt_BR'
+}: StaticPathsProps) {
+  let paths: unknown[] = []
 
-  const paths = pages.map(({ slug }) => ({
-    params: { slug }
-  }))
+  const { pages } = await client.request<GetPagesQuery>(GET_PAGES, {
+    first: 3,
+    locale
+  })
+
+  // const paths = pages.map(({ slug }) => ({
+  //   params: { slug }
+  // }))
+
+  for (const locale of locales) {
+    paths = [
+      ...paths,
+      ...pages.map(({ slug }) => ({
+        params: { slug },
+        locale
+      }))
+    ]
+  }
 
   return { paths, fallback: true }
 }
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
   const { page } = await client.request<GetPageBySlugQuery>(GET_PAGE_BY_SLUG, {
-    slug: `${params?.slug}`
+    slug: `${params?.slug}`,
+    locale
   })
 
   if (!page) return { notFound: true }

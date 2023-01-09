@@ -1,8 +1,8 @@
 import { gql } from 'graphql-request'
 
 export const GET_PAGES = gql`
-  query getPages($first: Int) {
-    pages(first: $first) {
+  query getPages($first: Int, $locale: Locale!) {
+    pages(first: $first, locales: [$locale]) {
       heading
       id
       slug
@@ -14,8 +14,8 @@ export const GET_PAGES = gql`
 `
 
 export const GET_PAGE_BY_SLUG = gql`
-  query getPageBySlug($slug: String!) {
-    page(where: { slug: $slug }) {
+  query getPageBySlug($slug: String!, $locale: Locale!) {
+    page(where: { slug: $slug }, locales: [$locale]) {
       id
       heading
       slug
@@ -39,7 +39,7 @@ export const GET_STADIUMS = gql`
       description {
         html
       }
-      gallery {
+      gallery(locales: en) {
         url
         height
         width
@@ -48,8 +48,8 @@ export const GET_STADIUMS = gql`
   }
 `
 export const GET_STADIUM_BY_SLUG = gql`
-  query getStadiumBySlug($slug: String!) {
-    stadium(where: { slug: $slug }) {
+  query getStadiumBySlug($slug: String!, $locale: Locale!) {
+    stadium(where: { slug: $slug }, locales: [$locale]) {
       id
       slug
       name
@@ -59,9 +59,8 @@ export const GET_STADIUM_BY_SLUG = gql`
       }
       description {
         html
-        text
       }
-      gallery {
+      gallery(locales: en) {
         url
         height
         width
