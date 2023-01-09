@@ -1,5 +1,6 @@
 import { CloseOutline } from '@styled-icons/evaicons-outline/CloseOutline'
 import { LinkWrapper } from 'components/LinkWrapper'
+import { SettingButton } from 'components/SettingButton'
 
 import * as S from './styles'
 
@@ -13,6 +14,7 @@ const PageTemplate = ({ heading, body }: PageTemplateProps) => (
     <LinkWrapper href="/">
       <CloseOutline size={32} aria-label="Clique para retornar para o mapa." />
     </LinkWrapper>
+    <SettingButton />
 
     <S.Heading>{heading}</S.Heading>
     <S.Body>

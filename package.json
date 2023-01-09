@@ -26,6 +26,7 @@
   "dependencies": {
     "@next/font": "13.0.7",
     "@styled-icons/evaicons-outline": "^10.46.0",
+    "cookies-next": "^2.1.1",
     "graphql": "^16.6.0",
     "graphql-request": "^5.1.0",
     "leaflet": "1.7.1",

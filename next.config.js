@@ -10,5 +10,9 @@ module.exports = {
   images: {
     domains: ['media.graphassets.com']
   },
+  i18n: {
+    locales: ['pt_BR', 'en'],
+    defaultLocale: 'pt_BR'
+  },
   withPWA
 }
