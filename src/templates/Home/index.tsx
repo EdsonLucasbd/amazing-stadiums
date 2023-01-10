@@ -4,21 +4,10 @@ import dynamic from 'next/dynamic'
 import { MapProps } from 'components/Map'
 import { NextSeo } from 'next-seo'
 import { SettingButton } from 'components/SettingButton'
-/* import { useRouter } from 'next/router'
-import { useEffect } from 'react' */
 
 const Map = dynamic(() => import('components/Map'), { ssr: false })
 
 export default function HomeTemplate({ stadiums }: MapProps) {
-  /* const router = useRouter()
-
-  useEffect(() => {
-    const { pathname, asPath, query, defaultLocale } = router
-
-    router.push({ pathname, query }, asPath, { locale: defaultLocale })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []) */
-
   return (
     <>
       <NextSeo

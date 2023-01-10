@@ -8,11 +8,6 @@ import { GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
 import StadiumsTemplate, { StadiumsTemplateProps } from 'templates/Stadiums'
 
-type StaticPathsProps = {
-  locale: string
-  locales: string[]
-}
-
 export default function Stadium({ stadium }: StadiumsTemplateProps) {
   const router = useRouter()
 
@@ -21,26 +16,14 @@ export default function Stadium({ stadium }: StadiumsTemplateProps) {
   return <StadiumsTemplate stadium={stadium} />
 }
 
-export async function getStaticPaths({
-  locales,
-  locale = 'pt_BR'
-}: StaticPathsProps) {
-  let paths: unknown[] = []
-
+export async function getStaticPaths() {
   const { stadiums } = await client.request<GetStadiumsQuery>(GET_STADIUMS, {
-    first: 3,
-    locale
+    first: 3
   })
 
-  for (const locale of locales) {
-    paths = [
-      ...paths,
-      ...stadiums.map(({ slug }) => ({
-        params: { slug },
-        locale
-      }))
-    ]
-  }
+  const paths = stadiums.map(({ slug }) => ({
+    params: { slug }
+  }))
 
   return { paths, fallback: true }
 }
