@@ -21,16 +21,23 @@ export default function Stadium({ stadium }: StadiumsTemplateProps) {
   return <StadiumsTemplate stadium={stadium} />
 }
 
-export async function getStaticPaths({ locale }: StaticPathsProps) {
+export async function getStaticPaths({ locales, locale }: StaticPathsProps) {
+  let paths: unknown[] = []
+
   const { stadiums } = await client.request<GetStadiumsQuery>(GET_STADIUMS, {
     first: 3,
     locale
   })
 
-  const paths = stadiums.map(({ slug }) => ({
-    params: { slug },
-    locale
-  }))
+  for (const locale of locales) {
+    paths = [
+      ...paths,
+      ...stadiums.map(({ slug }) => ({
+        params: { slug },
+        locale
+      }))
+    ]
+  }
 
   return { paths, fallback: true }
 }

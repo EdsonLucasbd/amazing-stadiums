@@ -7170,6 +7170,11 @@ p-map@^4.0.0:
   dependencies:
     aggregate-error "^3.0.0"
 
+p-throttle@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/p-throttle/-/p-throttle-5.0.0.tgz#b85e9dc56cbf5b54808a2ae29886b0da12537103"
+  integrity sha512-iXBFjW4kP/5Ivw7uC9EDnj+/xo3pNn4Rws3zgMGPwXnWTv1M3P0LVdZxLrqRUI5JK0Fp3Du0bt6lCaVrI3WF7g==
+
 p-try@^2.0.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/p-try/-/p-try-2.2.0.tgz#cb2868540e313d61de58fafbe35ce9004d5540e6"

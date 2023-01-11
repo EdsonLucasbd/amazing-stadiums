@@ -28,7 +28,7 @@ export const GET_PAGE_BY_SLUG = gql`
 
 export const GET_STADIUMS = gql`
   query getStadiums {
-    stadiums {
+    stadiums(locales: en) {
       id
       slug
       name
@@ -39,7 +39,7 @@ export const GET_STADIUMS = gql`
       description {
         html
       }
-      gallery(locales: en) {
+      gallery {
         url
         height
         width
