@@ -26,7 +26,6 @@
   "dependencies": {
     "@next/font": "13.0.7",
     "@styled-icons/evaicons-outline": "^10.46.0",
-    "cookies-next": "^2.1.1",
     "graphql": "^16.6.0",
     "graphql-request": "^5.1.0",
     "leaflet": "1.7.1",
@@ -35,7 +34,6 @@
     "next-seo": "^5.15.0",
     "next-sitemap": "^3.1.44",
     "nextjs-progressbar": "^0.0.16",
-    "p-throttle": "^5.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-leaflet": "4.2.0",
