@@ -3,7 +3,6 @@ import { InfoOutline } from '@styled-icons/evaicons-outline'
 import dynamic from 'next/dynamic'
 import { MapProps } from 'components/Map'
 import { NextSeo } from 'next-seo'
-import { SettingButton } from 'components/SettingButton'
 
 const Map = dynamic(() => import('components/Map'), { ssr: false })
 
@@ -36,7 +35,6 @@ export default function HomeTemplate({ stadiums }: MapProps) {
           aria-label="Clique para ir à pagina de detalhes deste projeto"
         />
       </LinkWrapper>
-      <SettingButton />
 
       <Map stadiums={stadiums} />
     </>
