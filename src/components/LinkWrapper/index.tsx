@@ -5,12 +5,18 @@ type LinkWrapperProps = {
   href: string
   children: React.ReactNode
   locale?: string
+  shallow?: boolean
 }
 
-export const LinkWrapper = ({ href, children, locale }: LinkWrapperProps) => {
+export const LinkWrapper = ({
+  href,
+  children,
+  locale,
+  shallow
+}: LinkWrapperProps) => {
   return (
     <S.Wrapper>
-      <Link href={href} locale={locale}>
+      <Link href={href} locale={locale} shallow={shallow}>
         {children}
       </Link>
     </S.Wrapper>
