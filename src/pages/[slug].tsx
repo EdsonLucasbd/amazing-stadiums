@@ -1,3 +1,4 @@
+import { Footer } from 'components/Footer'
 import client from 'graphql/client'
 import { GetPageBySlugQuery, GetPagesQuery } from 'graphql/generated/graphql'
 import { GET_PAGES, GET_PAGE_BY_SLUG } from 'graphql/queries'
@@ -15,7 +16,23 @@ export default function Page({ heading, body }: PageTemplateProps) {
 
   if (router.isFallback) return null
 
-  return <PageTemplate heading={heading} body={body} />
+  return (
+    <>
+      <PageTemplate heading={heading} body={body} />
+      <Footer>
+        <p>
+          Developed with 💜 {''}
+          <a
+            href="https://github.com/EdsonLucasbd"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Edson Lucas
+          </a>
+        </p>
+      </Footer>
+    </>
+  )
 }
 
 export async function getStaticPaths({
@@ -28,10 +45,6 @@ export async function getStaticPaths({
     first: 3,
     locale
   })
-
-  // const paths = pages.map(({ slug }) => ({
-  //   params: { slug }
-  // }))
 
   for (const locale of locales) {
     paths = [
