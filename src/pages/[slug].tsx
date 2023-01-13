@@ -6,11 +6,6 @@ import { GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
 import PageTemplate, { PageTemplateProps } from 'templates/Pages'
 
-type StaticPathsProps = {
-  locale: string
-  locales: string[]
-}
-
 export default function Page({ heading, body }: PageTemplateProps) {
   const router = useRouter()
 
@@ -35,26 +30,14 @@ export default function Page({ heading, body }: PageTemplateProps) {
   )
 }
 
-export async function getStaticPaths({
-  locales,
-  locale = 'pt_BR'
-}: StaticPathsProps) {
-  let paths: unknown[] = []
-
+export async function getStaticPaths() {
   const { pages } = await client.request<GetPagesQuery>(GET_PAGES, {
-    first: 3,
-    locale
+    first: 3
   })
 
-  for (const locale of locales) {
-    paths = [
-      ...paths,
-      ...pages.map(({ slug }) => ({
-        params: { slug },
-        locale
-      }))
-    ]
-  }
+  const paths = pages.map(({ slug }) => ({
+    params: { slug }
+  }))
 
   return { paths, fallback: true }
 }

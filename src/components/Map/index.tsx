@@ -82,7 +82,7 @@ const Map = ({ stadiums }: MapProps) => {
               title={name}
               eventHandlers={{
                 click: () => {
-                  router.replace(`/stadium/${slug}`, undefined, {
+                  router.push(`/stadium/${slug}`, undefined, {
                     locale: 'pt_BR'
                   })
                 }

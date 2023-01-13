@@ -1,8 +1,8 @@
 import { gql } from 'graphql-request'
 
 export const GET_PAGES = gql`
-  query getPages($first: Int, $locale: Locale!) {
-    pages(first: $first, locales: [$locale]) {
+  query getPages($first: Int) {
+    pages(first: $first) {
       heading
       id
       slug
